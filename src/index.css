@@ -1,13 +1,92 @@
-body {
+/* Font Import  */
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+
+/* Styling Reset */
+*,
+*:before,
+*:after {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  background-color: white;
+  font-family: 'Lexend Deca', sans-serif;
+  color: #3a3a3a;
+}
+button {
+  font-family: 'Lexend Deca', sans-serif;
+}
+button:focus,
+button:active {
+  outline: none;
+}
+a {
+  text-decoration: none;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Material UI Theme Override */
+
+/* Text-field Text Color */
+.MuiInputBase-root.MuiInputBase-root {
+  color: #3a3a3a;
+}
+.MuiInputBase-root.MuiOutlinedInput-input {
+  border-radius: 5px;
+}
+.MuiInputBase-root.MuiInputBase-root.MuiOutlinedInput-root fieldset {
+  border-color: #a0a0a0;
+  border-width: 2px;
+}
+.MuiInputBase-root.MuiInputBase-root.MuiOutlinedInput-root.Mui-error fieldset {
+  border-color: #fd5665;
+}
+.MuiInputBase-root.MuiInputBase-root.Mui-focused.Mui-focused fieldset {
+  border-color: #6772e5;
+}
+.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-outlined {
+  color: #a0a0a0;
+}
+.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-outlined.MuiFormLabel-filled {
+  color: #6772e5;
+}
+.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-outlined.Mui-focused.Mui-focused {
+  color: #6772e5;
+}
+.MuiSnackbarContent-root.MuiSnackbarContent-root {
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  color: #6772e5;
+  font-size: 1.1rem;
+}
+.tio-sync.spin-load {
+  animation: spin 1500ms ease infinite;
+  display: inline-block;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
 }
