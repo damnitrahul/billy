@@ -3,11 +3,12 @@ import Header from '../../header/Header';
 import {
   InvoiceTable,
   InvoiceListHead,
-  TableHeading,
+  TableHeading
 } from '../../styledComponents/invoices/invoiceTables';
 import { useSelector } from 'react-redux';
 import { isLoaded, isEmpty } from 'react-redux-firebase';
 import InvoiceListItem from './InvoiceListItem';
+import InvoiceListLoader from '../../loaders/dashboard/InvoiceListLoader';
 
 function Invoices() {
   const invoices = useSelector((state) => state.firestore.ordered.invoices);
@@ -17,7 +18,11 @@ function Invoices() {
       <InvoiceListItem invoice={invoice} key={invoice.id} />
     ));
   }
-  if (isEmpty(invoices)) return <h1>No Invoices</h1>;
+  if (!isLoaded(invoices)) {
+    tableListItems = Array.from({ length: 10 }).map((invoice) => (
+      <InvoiceListLoader />
+    ));
+  }
   return (
     <div>
       <Header title={'Invoices'} />

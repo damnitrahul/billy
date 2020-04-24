@@ -9,20 +9,26 @@ import {
 import InvoiceListItem from '../../invoices/InvoiceListItem';
 import { FlatButton } from '../../../styledComponents/shared/Button';
 import { Link } from 'react-router-dom';
+import InvoiceListLoader from '../../../loaders/dashboard/InvoiceListLoader';
 
 function RecentInvoices() {
   const invoices = useSelector(
-    state =>
+    (state) =>
       state.firestore.ordered.invoices &&
       state.firestore.ordered.invoices.slice(0, 5)
   );
   let tableListItems;
+
   if (isLoaded(invoices)) {
-    tableListItems = invoices.map(invoice => (
+    tableListItems = invoices.map((invoice) => (
       <InvoiceListItem invoice={invoice} key={invoice.id} />
     ));
   }
-  if (isEmpty(invoices)) return <h1>No Invoices</h1>;
+  if (!isLoaded(invoices)) {
+    tableListItems = Array.from({ length: 5 }).map((invoice) => (
+      <InvoiceListLoader />
+    ));
+  }
   return (
     <InvoiceTable>
       <TableHeading>

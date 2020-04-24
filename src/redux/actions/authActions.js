@@ -46,7 +46,8 @@ export const signUp = (newUser) => {
           firstName: newUser.firstName,
           lastName: newUser.lastName,
           email: newUser.email,
-          settings: defaultSettings
+          settings: defaultSettings,
+          currentInvoice: 1
         })
       )
       .then(() => {

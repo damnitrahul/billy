@@ -3,11 +3,17 @@ import { Doughnut } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
 import { isLoaded } from 'react-redux-firebase';
 import { GraphWidget } from '../../../styledComponents/dashboard/Widget';
+import PieLoader from '../../../loaders/dashboard/PieLoader';
 function PieGraph() {
-  const invoices = useSelector(state => state.firestore.ordered.invoices);
+  const invoices = useSelector((state) => state.firestore.ordered.invoices);
+
+  if (!isLoaded(invoices)) {
+    return <PieLoader />;
+  }
+
   if (isLoaded(invoices)) {
-    const paidInvoice = invoices.filter(invoice => invoice.paidStatus).length;
-    const pendingInvoice = invoices.filter(invoice => !invoice.paidStatus)
+    const paidInvoice = invoices.filter((invoice) => invoice.paidStatus).length;
+    const pendingInvoice = invoices.filter((invoice) => !invoice.paidStatus)
       .length;
 
     const chartData = {
@@ -22,6 +28,7 @@ function PieGraph() {
         }
       ]
     };
+
     return (
       <GraphWidget>
         <h3>Summary</h3>

@@ -6,13 +6,15 @@ import { SecondaryButton } from '../../styledComponents/shared/Button';
 import { Link } from 'react-router-dom';
 import DisplayName from './DisplayName';
 import { isLoaded } from 'react-redux-firebase';
+import SettingsLoader from '../../loaders/settings/SettingsLoader';
 
 function SettingPage() {
   const settings = useSelector(
-    state => state.firebase.profile && state.firebase.profile.settings
+    (state) => state.firebase.profile && state.firebase.profile.settings
   );
+  // LOADER
+  if (!isLoaded(settings)) return <SettingsLoader />;
 
-  if (!isLoaded(settings)) return <h1>Loading...</h1>;
   const {
     companyName,
     gstNumber,

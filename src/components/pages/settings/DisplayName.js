@@ -2,13 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 function DisplayName() {
-  const ProfileSettings = useSelector(state => state.firebase.profile);
+  const ProfileSettings = useSelector((state) => state.firebase.profile);
   const { firstName, lastName } = ProfileSettings;
   return (
     <div className="name-photo">
       <div>
         <img
-          src={`https://ui-avatars.com/api/?name=${firstName}+${lastName}&size=80&rounded=true`}
+          src={`https://ui-avatars.com/api/?name=${firstName}+${lastName}&size=80&rounded=true&color=2e5bff&background=e0e7ff`}
           alt="User Logo"
         />
       </div>

@@ -20,6 +20,7 @@ import { isLoaded } from 'react-redux-firebase';
 import { useSelector, useDispatch } from 'react-redux';
 import { createInvoice } from '../../../redux/actions/invoiceActions';
 import { useLayoutEffect } from 'react';
+import CreatePageLoader from '../../loaders/create/CreatePageLoader';
 
 /* ****************************************************** */
 /*                        Component                       */
@@ -44,6 +45,8 @@ function NewInvoice(props) {
     companyName: '',
     gstNumber: ''
   });
+
+  // Set Default Form State
   useEffect(() => {
     if (isLoaded(settings))
       setInvoiceMeta({
@@ -58,9 +61,9 @@ function NewInvoice(props) {
         gstNumber: settings.gstNumber
       });
   }, []);
-  if (!isLoaded(settings)) return <h1>Loading...</h1>;
 
-  // Set Default Form State
+  //Loader For Create Full Page
+  if (!isLoaded(settings)) return <CreatePageLoader />;
 
   // Controlling Some Inputs
   const handleInvoiceMeta = (e) => {
@@ -89,7 +92,7 @@ function NewInvoice(props) {
 
     handleSubmit(handleDataSubmit)();
   };
-  // Render Component
+
   return (
     <div>
       <Header title={'Add New Invoice'} />
