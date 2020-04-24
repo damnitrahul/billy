@@ -19,7 +19,6 @@ import {
 import { isLoaded } from 'react-redux-firebase';
 import { useSelector, useDispatch } from 'react-redux';
 import { createInvoice } from '../../../redux/actions/invoiceActions';
-import { useLayoutEffect } from 'react';
 import CreatePageLoader from '../../loaders/create/CreatePageLoader';
 
 /* ****************************************************** */
@@ -28,11 +27,21 @@ import CreatePageLoader from '../../loaders/create/CreatePageLoader';
 
 // Component
 function NewInvoice(props) {
-  const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
+  const dispatch = useDispatch();
   const settings = useSelector(
     (state) => state.firebase.profile && state.firebase.profile.settings
   );
+  const invoiceNum = useSelector(
+    (state) => state.firebase.profile && state.firebase.profile.currentInvoice
+  );
+
+  //Format Invoice Num and Append Zeros to is
+  const invNum =
+    invoiceNum && invoiceNum.toString().length < 4
+      ? '0'.repeat(4 - invoiceNum.toString().length) + invoiceNum
+      : invoiceNum;
+
   const [invoiceMeta, setInvoiceMeta] = useState({
     invoiceDate: new Date(),
     dueDate: new Date(),
@@ -60,7 +69,7 @@ function NewInvoice(props) {
         companyName: settings.companyName,
         gstNumber: settings.gstNumber
       });
-  }, []);
+  }, [settings]);
 
   //Loader For Create Full Page
   if (!isLoaded(settings)) return <CreatePageLoader />;
@@ -250,6 +259,7 @@ function NewInvoice(props) {
                 fullWidth
                 variant="outlined"
                 margin="dense"
+                value={invNum}
               />
             </div>
           </Grid>

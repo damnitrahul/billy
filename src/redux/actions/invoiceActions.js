@@ -7,16 +7,24 @@ export const createInvoice = (invoiceDetails) => (
 ) => {
   dispatch({ type: 'CREATE_BUTTON', payload: true });
   const uid = getState().firebase.auth.uid;
+  const currInvoice = getState().firebase.profile.currentInvoice;
   const firestore = getFirebase().firestore();
+  let path = '';
   firestore
     .collection('users')
     .doc(uid)
     .collection('invoices')
     .add({ ...invoiceDetails })
     .then((res) => {
+      path = res.id;
+      firestore
+        .collection('users')
+        .doc(uid)
+        .update({ currentInvoice: currInvoice + 1 });
+    })
+    .then((res) => {
       dispatch({ type: 'CREATE_INVOICE', payload: invoiceDetails });
-      console.log(res);
-      history.push(`/invoice/${res.id}`);
+      history.push(`/invoice/${path}`);
     })
     .catch((err) => {
       console.log(err);
