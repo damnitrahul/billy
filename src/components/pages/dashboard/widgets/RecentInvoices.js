@@ -25,8 +25,8 @@ function RecentInvoices() {
     ));
   }
   if (!isLoaded(invoices)) {
-    tableListItems = Array.from({ length: 5 }).map((invoice) => (
-      <InvoiceListLoader />
+    tableListItems = Array.from({ length: 5 }).map((invoice, i) => (
+      <InvoiceListLoader key={i} />
     ));
   }
   return (

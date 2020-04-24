@@ -5,10 +5,10 @@ import 'firebase/functions';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { getFirebase } from 'react-redux-firebase';
 import { createFirestoreInstance, reduxFirestore } from 'redux-firestore';
-import firebaseConfig from '../others/firebaseConfig';
+import firebaseConfig from '../others/firebaseConfigEnv';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducers';
-
+console.log(process.env);
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();
 firebase.functions();
