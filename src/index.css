@@ -72,16 +72,21 @@ input[type='number'] {
 .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-outlined.Mui-focused.Mui-focused {
   color: #6772e5;
 }
+
+/* Snack Bar Color */
+
 .MuiSnackbarContent-root.MuiSnackbarContent-root {
   border-radius: 10px;
   background-color: #f4f4f4;
-  color: #6772e5;
+  color: #3a3a3a;
   font-size: 1.1rem;
 }
+/* Button Spinner Style and Spin Animation */
 .tio-sync.spin-load {
   animation: spin 1500ms ease infinite;
   display: inline-block;
 }
+
 @keyframes spin {
   from {
     transform: rotate(0deg);

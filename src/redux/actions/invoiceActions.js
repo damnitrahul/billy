@@ -1,5 +1,7 @@
 import history from '../../others/history';
 
+/* ******************* Create Invoice ******************* */
+
 export const createInvoice = (invoiceDetails) => (
   dispatch,
   getState,
@@ -27,11 +29,13 @@ export const createInvoice = (invoiceDetails) => (
       history.push(`/invoice/${path}`);
     })
     .catch((err) => {
-      console.log(err);
       dispatch({ type: 'CREATE_INVOICE_ERROR', err });
+      dispatch({ type: 'WENTWRONG_BAR' });
     })
     .finally(() => dispatch({ type: 'CREATE_BUTTON', payload: false }));
 };
+
+/* ******************* Delete Invoice ******************* */
 
 export const deleteInovice = (invoiceId) => (
   dispatch,
@@ -48,9 +52,12 @@ export const deleteInovice = (invoiceId) => (
     .delete()
     .then(() => {
       dispatch({ type: 'DELETE_SUCCESS_BAR' });
-    });
+    })
+    .catch((err) => dispatch({ type: 'WENTWRONG_BAR' }));
   history.push('/invoices');
 };
+
+/* **************** Change Payment Status *************** */
 
 export const updatePaymentStatus = (invoiceId, status) => (
   dispatch,
@@ -67,8 +74,11 @@ export const updatePaymentStatus = (invoiceId, status) => (
     .update({ paidStatus: status })
     .then(() => {
       dispatch({ type: 'UPDATE_PAYMENT_STATUS' });
-    });
+    })
+    .catch((err) => dispatch({ type: 'WENTWRONG_BAR' }));
 };
+
+/* ************* Send Email Invoice Reminder ************ */
 
 export const sendInvoiceMail = (id) => (
   dispatch,
@@ -76,12 +86,37 @@ export const sendInvoiceMail = (id) => (
   { getFirebase }
 ) => {
   dispatch({ type: 'EMAILSEND_BUTTON', payload: true });
+  const lastReminder = getState().firestore.data.invoices[
+    id
+  ].remindedAt.toDate();
+
+  const diff = Math.floor(
+    Math.abs(new Date() - lastReminder) / 1000 / 60 / 60 / 24
+  );
+
+  // Stop Function if Reminded on same Day
+  if (diff === 0) {
+    dispatch({ type: 'EMAILSEND_BUTTON', payload: false });
+    return dispatch({ type: 'EMAILMAXLIMIT_BAR' });
+  }
+
   var invoiceRemindMail = getFirebase()
     .functions()
     .httpsCallable('invoiceRemindMail');
-  invoiceRemindMail(id).then((res) => {
-    dispatch({ type: 'EMAIL_SUCCESS_BAR' });
-    dispatch({ type: 'EMAILSEND_BUTTON', payload: false });
-    console.log(res);
-  });
+  invoiceRemindMail(id)
+    .then((res) => {
+      const firestore = getFirebase().firestore();
+      const uid = getState().firebase.auth.uid;
+      firestore
+        .collection('users')
+        .doc(uid)
+        .collection('invoices')
+        .doc(id)
+        .update({ remindedAt: new Date() });
+    })
+    .then(() => {
+      dispatch({ type: 'EMAIL_SUCCESS_BAR' });
+      dispatch({ type: 'EMAILSEND_BUTTON', payload: false });
+    })
+    .catch((err) => dispatch({ type: 'WENTWRONG_BAR' }));
 };

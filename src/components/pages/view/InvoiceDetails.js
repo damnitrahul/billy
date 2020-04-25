@@ -16,11 +16,13 @@ import { isLoaded } from 'react-redux-firebase';
 import { PDFDownloadLink, BlobProvider } from '@react-pdf/renderer';
 import {
   confirmDeleteAction,
-  confirmEmailReminder
+  confirmEmailReminder,
+  confirmPaymentChangeAction
 } from '../../../redux/actions/alertDialogActions';
 import {
   deleteInovice,
-  sendInvoiceMail
+  sendInvoiceMail,
+  updatePaymentStatus
 } from '../../../redux/actions/invoiceActions';
 import { useState } from 'react';
 
@@ -44,17 +46,42 @@ function InvoiceDetails() {
   const handleEmailInvoice = () => {
     dispatch(confirmEmailReminder(sendInvoiceMail(id)));
   };
-  const diff = new Date() - invoice.invoiceDate.toDate();
-  console.log(Math.floor(diff / 1000 / 60 / 60 / 24));
+
+  const handlePaymentStatus = () => {
+    dispatch(
+      confirmPaymentChangeAction(updatePaymentStatus(id, !invoice.paidStatus))
+    );
+  };
+
   return (
     <div>
       <Header title={'Invoice Details'} />
       <InvoicePD invoice={invoice} />
       <ButtonDiv>
-        <Button onClick={handleEmailInvoice} disabled={loadingState}>
+        <Button
+          onClick={handlePaymentStatus}
+          disabled={loadingState}
+          color="#fda734"
+        >
+          <i
+            className={
+              invoice.paidStatus
+                ? 'tio-help_outlined'
+                : 'tio-checkmark_circle_outlined'
+            }
+          ></i>{' '}
+          {invoice.paidStatus ? 'Mark Pending' : 'Mark Paid'}
+          {loadingState && <i className="tio-sync spin-load"></i>}
+        </Button>
+
+        <Button
+          onClick={handleEmailInvoice}
+          disabled={invoice.paidStatus || loadingState}
+        >
           <i className="tio-send"></i> Send Email{' '}
           {loadingState && <i className="tio-sync spin-load"></i>}
         </Button>
+
         <Button
           as={PDFDownloadLink}
           secondary

@@ -19,6 +19,12 @@ const snackbarReducer = (state = initState, action) => {
     case 'PASSWORDRESET_SUCCESS_BAR':
       return { message: 'Password Reset Sent Link on Email' };
 
+    case 'EMAILMAXLIMIT_BAR':
+      return { message: 'Can Only Remind Once In A Day' };
+
+    case 'WENTWRONG_BAR':
+      return { message: 'Uh oh... Somthing Went Wrong!' };
+
     default:
       return state;
   }
