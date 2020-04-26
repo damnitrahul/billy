@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   SignUpForm as SignUpBox,
-  FormHeader,
+  FormHeader
 } from '../../styledComponents/auth/SignupLoginForm';
 import { TwoColField } from '../../styledComponents/shared/TextFieldLabel';
 import { Button } from '../../styledComponents/shared/Button';
@@ -44,10 +44,10 @@ function SignUpForm() {
               type="text"
               name="firstName"
               id="firstName"
-              placeholder="Jhon"
+              placeholder="Regina"
               ref={register({
                 required: true,
-                minLength: 2,
+                minLength: 2
               })}
             />
           </div>
@@ -57,10 +57,10 @@ function SignUpForm() {
               type="text"
               name="lastName"
               id="lastName"
-              placeholder="Doe"
+              placeholder="Phalange"
               ref={register({
                 required: true,
-                minLength: 2,
+                minLength: 2
               })}
             />
           </div>
@@ -76,11 +76,11 @@ function SignUpForm() {
             type="text"
             name="email"
             id="email"
-            placeholder="name@email.com"
+            placeholder="regina@email.com"
             ref={register({
               required: true,
               minLength: 2,
-              pattern: /\S+@\S+\.\S+/,
+              pattern: /\S+@\S+\.\S+/
             })}
           />
           {errors.email && (
@@ -98,7 +98,7 @@ function SignUpForm() {
             placeholder="Hunter2"
             ref={register({
               required: true,
-              minLength: 6,
+              minLength: 6
             })}
           />
           {errors.password && (
