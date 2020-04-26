@@ -11,9 +11,9 @@ import InvoicePDF from './InvoicePDF';
 
 // Vendor
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { isLoaded } from 'react-redux-firebase';
-import { PDFDownloadLink, BlobProvider } from '@react-pdf/renderer';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 import {
   confirmDeleteAction,
   confirmEmailReminder,
@@ -25,7 +25,10 @@ import {
   updatePaymentStatus
 } from '../../../redux/actions/invoiceActions';
 import { useState } from 'react';
+import AppLoader from '../../loaders/app/AppLoader';
+import NotFound from '../../loaders/404/NotFound';
 
+// Component
 function InvoiceDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -34,10 +37,9 @@ function InvoiceDetails() {
     (state) =>
       state.firestore.data.invoices && state.firestore.data.invoices[id]
   );
-
   const loadingState = useSelector((state) => state.loadingState.emailSendBtn);
 
-  if (!isLoaded(invoice)) return <h1>Loading...</h1>;
+  if (!isLoaded(invoice)) return <AppLoader />;
 
   const handleDeleteInvoice = () => {
     dispatch(confirmDeleteAction(deleteInovice(id)));

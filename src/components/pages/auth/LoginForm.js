@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   LoginBox,
-  FormHeader,
+  FormHeader
 } from '../../styledComponents/auth/SignupLoginForm';
 import { Button } from '../../styledComponents/shared/Button';
 import { useForm } from 'react-hook-form';
@@ -10,6 +10,7 @@ import { signIn } from '../../../redux/actions/authActions';
 import { Link } from 'react-router-dom';
 import { Hidden } from '@material-ui/core';
 import BillyLogo from '../../../images/Billy-Logo.png';
+
 function LoginForm() {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
@@ -43,7 +44,7 @@ function LoginForm() {
             ref={register({
               required: true,
               minLength: 2,
-              pattern: /\S+@\S+\.\S+/,
+              pattern: /\S+@\S+\.\S+/
             })}
             placeholder="name@email.com"
           />
@@ -62,7 +63,7 @@ function LoginForm() {
             placeholder="Hunter2"
             ref={register({
               required: true,
-              minLength: 6,
+              minLength: 6
             })}
           />
         </div>

@@ -9,10 +9,14 @@ import { useSelector } from 'react-redux';
 import { isLoaded, isEmpty } from 'react-redux-firebase';
 import InvoiceListItem from './InvoiceListItem';
 import InvoiceListLoader from '../../loaders/dashboard/InvoiceListLoader';
+import NothingHere from '../../loaders/welcome/NothingHere';
 
 function Invoices() {
   const invoices = useSelector((state) => state.firestore.ordered.invoices);
   let tableListItems;
+
+  if (isLoaded(invoices) && isEmpty(invoices)) return <NothingHere />;
+
   if (isLoaded(invoices)) {
     tableListItems = invoices.map((invoice) => (
       <InvoiceListItem invoice={invoice} key={invoice.id} />

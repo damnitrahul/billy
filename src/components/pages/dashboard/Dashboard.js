@@ -9,8 +9,15 @@ import FulfilledInvoice from './widgets/FulfilledInvoice';
 import PendingInvoice from './widgets/PendingInvoice';
 import RecentInvoices from './widgets/RecentInvoices';
 import PieGraph from './widgets/PieGraph';
+import { isLoaded, isEmpty } from 'react-redux-firebase';
+import Welcome from '../../loaders/welcome/Welcome';
+import { useSelector } from 'react-redux';
 
 function Dashboard() {
+  const invoices = useSelector((state) => state.firestore.ordered.invoices);
+
+  if (isLoaded(invoices) && isEmpty(invoices)) return <Welcome />;
+
   return (
     <div>
       <Header title={'Dashboard'} />

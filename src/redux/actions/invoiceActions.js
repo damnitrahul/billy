@@ -54,7 +54,9 @@ export const deleteInovice = (invoiceId) => (
       dispatch({ type: 'DELETE_SUCCESS_BAR' });
     })
     .catch((err) => dispatch({ type: 'WENTWRONG_BAR' }));
-  history.push('/invoices');
+  if (history.location.pathname !== '/') {
+    history.push('/invoices');
+  }
 };
 
 /* **************** Change Payment Status *************** */
@@ -86,14 +88,17 @@ export const sendInvoiceMail = (id) => (
   { getFirebase }
 ) => {
   dispatch({ type: 'EMAILSEND_BUTTON', payload: true });
-  const lastReminder = getState().firestore.data.invoices[
-    id
-  ].remindedAt.toDate();
 
-  const diff = Math.floor(
-    Math.abs(new Date() - lastReminder) / 1000 / 60 / 60 / 24
-  );
+  const lastReminder = getState()
+    .firestore.data.invoices[id].remindedAt.toDate()
+    .setHours(0, 0, 0, 0);
+  const today = new Date().setHours(0, 0, 0, 0);
 
+  // console.log(lastReminder, today);
+
+  const diff = Math.floor(Math.abs(today - lastReminder) / 1000 / 60 / 60 / 24);
+
+  // console.log(diff);
   // Stop Function if Reminded on same Day
   if (diff === 0) {
     dispatch({ type: 'EMAILSEND_BUTTON', payload: false });

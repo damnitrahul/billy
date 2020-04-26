@@ -22,6 +22,8 @@ import BottomNavigation from './components/bottomNavigation/BottomNavigation';
 import AlertDialog from './components/dialog/Dialog';
 import ForgotPassword from './components/pages/auth/ForgotPassword';
 import AlertSnackbar from './components/snackbar/SnackBar';
+import AppLoader from './components/loaders/app/AppLoader';
+import NotFound from './components/loaders/404/NotFound';
 
 function App() {
   const auth = useSelector((state) => state.firebase.auth);
@@ -37,7 +39,9 @@ function App() {
     }
   ]);
 
-  if (!isLoaded(auth)) return <h1>Loading...</h1>;
+  if (!isLoaded(auth)) {
+    return <AppLoader />;
+  }
 
   if (isEmpty(auth))
     return (
@@ -45,7 +49,7 @@ function App() {
         <Route exact path="/register" component={SignUp} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/forgot" component={ForgotPassword} />
-        <Route render={() => <Redirect to="/login" />} />
+        <Route render={() => <Redirect to="/register" />} />
       </Switch>
     );
 
@@ -62,7 +66,7 @@ function App() {
           <Route exact path="/invoice/:id" component={InvoiceDetails} />
           <Route exact path="/register" render={() => <Redirect to="/" />} />
           <Route exact path="/login" render={() => <Redirect to="/" />} />
-          <Route render={() => <Redirect to="/" />} />
+          <Route component={NotFound} />
           />
         </Switch>
       </div>
