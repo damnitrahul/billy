@@ -6,13 +6,12 @@ import { Link } from 'react-router-dom';
 const Loader = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  margin-top: 20vh;
   div {
     width: 100%;
     max-width: 500px;
-
     text-align: center;
+    padding: 2rem;
     a {
       display: block;
       width: 100%;
