@@ -118,7 +118,6 @@ function InvoicePDF(props) {
     invoiceDate,
     dueDate,
     invoiceNumber,
-    billableType,
     currency,
     note,
     taxEnable,

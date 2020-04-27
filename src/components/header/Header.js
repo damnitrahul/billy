@@ -15,7 +15,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { confirmLogoutAction } from '../../redux/actions/alertDialogActions';
 import { isLoaded } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
-import { sendInvoiceMail } from '../../redux/actions/invoiceActions';
 
 //Component
 function Header({ title }) {

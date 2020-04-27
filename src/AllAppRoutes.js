@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { Redirect, Switch, Route } from 'react-router-dom';
+
 // Pages Components
 import Dashboard from './components/pages/dashboard/Dashboard';
 import NewInvoice from './components/pages/create/NewInvoice';
@@ -10,7 +10,7 @@ import InvoiceDetails from './components/pages/view/InvoiceDetails';
 import EditSettings from './components/pages/settings/EditSettings';
 import NotFound from './components/loaders/404/NotFound';
 
-function AllRoutes() {
+function AllAppRoutes() {
   return (
     <Switch>
       <Route exact path="/" component={Dashboard} />
@@ -27,4 +27,4 @@ function AllRoutes() {
   );
 }
 
-export default AllRoutes;
+export default AllAppRoutes;

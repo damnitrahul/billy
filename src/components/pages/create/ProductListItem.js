@@ -15,7 +15,7 @@ import Grid from '@material-ui/core/Grid';
 
 // Component
 function ProductListItem(props) {
-  const { amount, disc, id, itemName, qty, rate } = props.item;
+  const { disc, id, itemName, qty, rate } = props.item;
   const currency = props.currency === 'usd' ? '$' : '₹';
   // Init Custom Toggle Hook
   const [isEditing, setEditing] = useToggle(false);
@@ -30,11 +30,11 @@ function ProductListItem(props) {
   });
 
   //Controlled Form Input for Amount Update
-  const updateForm = e => {
+  const updateForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleEdit = data => {
+  const handleEdit = (data) => {
     setEditing();
     props.handleEdit(data, id);
   };

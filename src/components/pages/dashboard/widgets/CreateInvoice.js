@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Widget } from '../../../styledComponents/dashboard/Widget';
 import { useSelector } from 'react-redux';

@@ -29,7 +29,11 @@ function SignUp() {
               </div>
               <p>created by</p>
               <div className="brand-image">
-                <a href="https://damnitrahul.com/" target="_blank">
+                <a
+                  href="https://damnitrahul.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <img src={DamnitrahulLogo} alt="BillyLogo" />
                 </a>
               </div>

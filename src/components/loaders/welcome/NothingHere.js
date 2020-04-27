@@ -29,7 +29,7 @@ function NothingHere() {
     <Loader>
       <div>
         <Link to="/create">
-          <img src={nothing} alt="404 Image" />
+          <img src={nothing} alt="Nothing Here Yet" />
         </Link>
       </div>
     </Loader>

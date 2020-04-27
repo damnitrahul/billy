@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { SidePanel } from '../styledComponents/layout/sidebar/SidePanel';
 import NavLinks from './NavLinks';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import BillyLogo from '../../images/Billy.png';
 
 function SideBar() {
@@ -38,4 +38,4 @@ function SideBar() {
   );
 }
 
-export default SideBar;
+export default memo(SideBar);

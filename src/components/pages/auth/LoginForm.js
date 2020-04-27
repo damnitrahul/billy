@@ -8,7 +8,6 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { signIn } from '../../../redux/actions/authActions';
 import { Link } from 'react-router-dom';
-import { Hidden } from '@material-ui/core';
 import BillyLogo from '../../../images/Billy-Logo.png';
 
 function LoginForm() {
@@ -90,7 +89,11 @@ function LoginForm() {
       </p>
       <p className="footer-by ">
         Created By{' '}
-        <a href="https://damnitrahul.com/" target="_blank">
+        <a
+          href="https://damnitrahul.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Rahul Raj
         </a>
       </p>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   LoginBox,
-  FormHeader,
+  FormHeader
 } from '../../styledComponents/auth/SignupLoginForm';
 import { Button } from '../../styledComponents/shared/Button';
 import { useForm } from 'react-hook-form';
@@ -42,7 +42,7 @@ function LoginForm() {
             ref={register({
               required: true,
               minLength: 2,
-              pattern: /\S+@\S+\.\S+/,
+              pattern: /\S+@\S+\.\S+/
             })}
             placeholder="name@email.com"
           />
@@ -68,7 +68,11 @@ function LoginForm() {
       </p>
       <p className="footer-by ">
         Created By{' '}
-        <a href="https://damnitrahul.com/" target="_blank">
+        <a
+          href="https://damnitrahul.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Rahul Raj
         </a>
       </p>

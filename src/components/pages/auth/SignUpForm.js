@@ -123,7 +123,11 @@ function SignUpForm() {
       </p>
       <p className="footer-by ">
         Created By{' '}
-        <a href="https://damnitrahul.com/" target="_blank">
+        <a
+          href="https://damnitrahul.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Rahul Raj
         </a>
       </p>

@@ -10,7 +10,6 @@ import { changePassword } from '../../../redux/actions/authActions';
 function ChangePassword() {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors, watch } = useForm();
-  const settings = useSelector((state) => state.firebase.profile.settings);
   const loadingState = useSelector((state) => state.loadingState.passwordBtn);
 
   const errorState = useSelector(
@@ -66,7 +65,7 @@ function ChangePassword() {
                 inputRef={register({
                   validate: (value) => {
                     return value === watch('pass');
-                  },
+                  }
                 })}
                 error={errors.confirmPass && true}
                 helperText={errors.confirmPass && "New Password doesn't match"}

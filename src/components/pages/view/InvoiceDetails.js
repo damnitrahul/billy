@@ -11,7 +11,7 @@ import InvoicePDF from './InvoicePDF';
 
 // Vendor
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { isLoaded } from 'react-redux-firebase';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import {
@@ -26,7 +26,6 @@ import {
 } from '../../../redux/actions/invoiceActions';
 import { useState } from 'react';
 import AppLoader from '../../loaders/app/AppLoader';
-import NotFound from '../../loaders/404/NotFound';
 
 // Component
 function InvoiceDetails() {
@@ -80,8 +79,7 @@ function InvoiceDetails() {
           onClick={handleEmailInvoice}
           disabled={invoice.paidStatus || loadingState}
         >
-          <i className="tio-send"></i> Send Email{' '}
-          {loadingState && <i className="tio-sync spin-load"></i>}
+          <i className="tio-send"></i> Send Email
         </Button>
 
         <Button

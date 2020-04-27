@@ -26,7 +26,7 @@ function NotFound() {
   return (
     <Loader>
       <div>
-        <img src={NotFoundImg} alt="404 Image" />
+        <img src={NotFoundImg} alt="Not Found" />
         <SecondaryButton as={Link} to="/" secondary>
           Return Home
         </SecondaryButton>
