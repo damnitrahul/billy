@@ -16,7 +16,13 @@ import { useSelector } from 'react-redux';
 function Dashboard() {
   const invoices = useSelector((state) => state.firestore.ordered.invoices);
 
-  if (isLoaded(invoices) && isEmpty(invoices)) return <Welcome />;
+  if (isLoaded(invoices) && isEmpty(invoices))
+    return (
+      <>
+        <Header title={'Dashboard'} />
+        <Welcome />
+      </>
+    );
 
   return (
     <div>
