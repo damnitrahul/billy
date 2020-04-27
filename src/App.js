@@ -16,7 +16,7 @@ import AlertDialog from './components/dialog/Dialog';
 import ForgotPassword from './components/pages/auth/ForgotPassword';
 import AlertSnackbar from './components/snackbar/SnackBar';
 import AppLoader from './components/loaders/app/AppLoader';
-import AllRoutes from './AllRoutes';
+// import AllRoutes from './AllRoutes';
 
 const LoadableComponent = Loadable({
   loader: () => import('./AllRoutes'),
