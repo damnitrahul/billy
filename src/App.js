@@ -66,7 +66,7 @@ function App() {
         <Route exact path="/register" component={SignUp} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/forgot" component={ForgotPassword} />
-        <Route render={() => <Redirect to="/register" />} />
+        <Route render={() => <Redirect to="/login" />} />
       </Switch>
     );
 
