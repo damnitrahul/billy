@@ -44,6 +44,32 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
+/* Scroll Bar and Selecrtion */
+::selection {
+  background-color: #e0e7ff;
+  color: #000;
+}
+/* width */
+::-webkit-scrollbar {
+  /* width: 10px; */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e0e7ff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #bdcaf8;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #859ef7;
+}
+
 /* Material UI Theme Override */
 
 /* Text-field Text Color */
