@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
+
+//Vendor
 import { Grid } from '@material-ui/core';
-import { SignUpPage } from '../../styledComponents/auth/SignupLoginForm';
-import ForgotPasswordForm from './ForgotPasswordForm';
 import { useDispatch } from 'react-redux';
 
+// Custom
+import { SignUpPage } from '../../styledComponents/auth/SignupLoginForm';
+import ForgotPasswordForm from './ForgotPasswordForm';
+
+// Component
 function ForgotPassword() {
   const dispatch = useDispatch();
   useEffect(() => {

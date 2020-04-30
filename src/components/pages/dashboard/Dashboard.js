@@ -1,18 +1,18 @@
 import React from 'react';
-// Material UI
+//Vendor
 import { Grid, Hidden } from '@material-ui/core';
-
-// Components
+import { useSelector } from 'react-redux';
+import { isLoaded, isEmpty } from 'react-redux-firebase';
+// Custom
 import Header from '../../header/Header';
 import CreateInvoice from './widgets/CreateInvoice';
 import FulfilledInvoice from './widgets/FulfilledInvoice';
 import PendingInvoice from './widgets/PendingInvoice';
 import RecentInvoices from './widgets/RecentInvoices';
 import PieGraph from './widgets/PieGraph';
-import { isLoaded, isEmpty } from 'react-redux-firebase';
 import Welcome from '../../loaders/welcome/Welcome';
-import { useSelector } from 'react-redux';
 
+// Component
 function Dashboard() {
   const invoices = useSelector((state) => state.firestore.ordered.invoices);
 

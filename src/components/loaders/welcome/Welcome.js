@@ -1,8 +1,11 @@
 import React from 'react';
+//Vendor
 import styled from 'styled-components';
-import welcomeImg from '../../../images/welcome.svg';
 import { Link } from 'react-router-dom';
+// Custom
+import welcomeImg from '../../../images/welcome.svg';
 
+// Styled
 const Loader = styled.div`
   display: flex;
   justify-content: center;
@@ -24,6 +27,8 @@ const Loader = styled.div`
     }
   }
 `;
+
+// Component
 function Welcome() {
   return (
     <Loader>

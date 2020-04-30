@@ -1,16 +1,12 @@
 import React, { useState, memo } from 'react';
 
-// Components
+// Custom
 import ProductListItem from './ProductListItem';
 import ProductAddItem from './ProductAddItem';
-
-// Styled Coponents
-import { Button } from '../../styledComponents/shared/Button';
-import { InvoiceTable } from '../../styledComponents/newInvoice/InvoiceTable';
-
-// Custom Toggle Hook
 import useToggle from '../../../hooks/useToggle';
 import TotalAmount from './TotalAmount';
+import { Button } from '../../styledComponents/shared/Button';
+import { InvoiceTable } from '../../styledComponents/newInvoice/InvoiceTable';
 
 // Component
 function ProductList(props) {
@@ -18,7 +14,7 @@ function ProductList(props) {
   const [showAddItemForm, toggleAddItemForm] = useToggle(true);
 
   // ADD, DELETE, EDIT
-  const handleAdd = newItem => {
+  const handleAdd = (newItem) => {
     const newItems = [
       ...items,
       {
@@ -33,14 +29,13 @@ function ProductList(props) {
     toggleAddItemForm();
   };
 
-  const handleDelete = id => {
-    const newItems = items.filter(item => item.id !== id);
+  const handleDelete = (id) => {
+    const newItems = items.filter((item) => item.id !== id);
     setItems(newItems);
   };
 
   const handleEdit = (newItem, id) => {
-    console.log(newItem);
-    const newItems = items.map(item => {
+    const newItems = items.map((item) => {
       if (item.id === id)
         return {
           ...newItem,
@@ -52,13 +47,11 @@ function ProductList(props) {
       return item;
     });
     setItems(newItems);
-    console.log(newItems);
   };
 
   //Handle UPstreme Data
-  const handleItemsData = data => {
+  const handleItemsData = (data) => {
     const itemsObj = { items: items, ...data };
-    console.log(itemsObj);
     props.handleInvoiceSubmit(itemsObj);
   };
 
@@ -66,7 +59,7 @@ function ProductList(props) {
     <InvoiceTable>
       <h2>Item Details</h2>
 
-      {items.map(item => (
+      {items.map((item) => (
         <ProductListItem
           key={item.id}
           item={item}

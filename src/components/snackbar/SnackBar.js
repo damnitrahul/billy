@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
+//Vendor
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import { useSelector } from 'react-redux';
 
+// Component
 function AlertSnackbar() {
   const barState = useSelector((state) => state.snackbar);
   const { message } = barState;

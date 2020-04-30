@@ -1,7 +1,10 @@
 import React from 'react';
-import { InvoiceListItem } from '../../styledComponents/invoices/invoiceTables';
+// Vendor
 import styled from 'styled-components';
+// Custom
+import { InvoiceListItem } from '../../styledComponents/invoices/invoiceTables';
 
+// Overwriting Styled Component for Loader
 const Loader = styled(InvoiceListItem)`
   p {
     padding: 0.8rem;
@@ -36,6 +39,8 @@ const Loader = styled(InvoiceListItem)`
   }
   padding: 1rem;
 `;
+
+// Component
 function InvoiceListLoader() {
   return (
     <Loader>

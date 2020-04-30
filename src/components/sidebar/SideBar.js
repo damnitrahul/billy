@@ -1,9 +1,12 @@
 import React, { memo } from 'react';
-import { SidePanel } from '../styledComponents/layout/sidebar/SidePanel';
-import NavLinks from './NavLinks';
+//Vendor
 import { Link } from 'react-router-dom';
-import BillyLogo from '../../images/Billy.png';
+import { SidePanel } from '../styledComponents/layout/sidebar/SidePanel';
+// Custom
+import NavLinks from './NavLinks';
+import BillyLogo from '../../images/Billy-Logo.png';
 
+// Component
 function SideBar() {
   return (
     <SidePanel>

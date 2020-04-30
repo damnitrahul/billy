@@ -1,16 +1,19 @@
 import React from 'react';
+//Vendor
 import Header from '../../header/Header';
+import { useSelector } from 'react-redux';
+import { isLoaded, isEmpty } from 'react-redux-firebase';
+// Custom
 import {
   InvoiceTable,
   InvoiceListHead,
   TableHeading
 } from '../../styledComponents/invoices/invoiceTables';
-import { useSelector } from 'react-redux';
-import { isLoaded, isEmpty } from 'react-redux-firebase';
 import InvoiceListItem from './InvoiceListItem';
 import InvoiceListLoader from '../../loaders/dashboard/InvoiceListLoader';
 import NothingHere from '../../loaders/welcome/NothingHere';
 
+// Component
 function Invoices() {
   const invoices = useSelector((state) => state.firestore.ordered.invoices);
   let tableListItems;

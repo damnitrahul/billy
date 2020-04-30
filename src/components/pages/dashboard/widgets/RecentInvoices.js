@@ -1,6 +1,9 @@
 import React from 'react';
+//Vendor
 import { useSelector } from 'react-redux';
 import { isLoaded } from 'react-redux-firebase';
+import { Link } from 'react-router-dom';
+// Custom
 import {
   InvoiceListHead,
   InvoiceTable,
@@ -8,9 +11,9 @@ import {
 } from '../../../styledComponents/invoices/invoiceTables';
 import InvoiceListItem from '../../invoices/InvoiceListItem';
 import { FlatButton } from '../../../styledComponents/shared/Button';
-import { Link } from 'react-router-dom';
 import InvoiceListLoader from '../../../loaders/dashboard/InvoiceListLoader';
 
+// Component
 function RecentInvoices() {
   const invoices = useSelector(
     (state) =>

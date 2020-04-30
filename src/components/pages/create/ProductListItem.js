@@ -1,27 +1,21 @@
 import React, { useState } from 'react';
-// Styled Component
-import { Button } from '../../styledComponents/shared/Button';
-
-// Custom Hook
-import useToggle from '../../../hooks/useToggle';
-
-//React Hook Form
-import { useForm } from 'react-hook-form';
-
-// Material UI
+// Vendor
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Grid from '@material-ui/core/Grid';
+import { useForm } from 'react-hook-form';
+// Custom
+import { Button } from '../../styledComponents/shared/Button';
+import useToggle from '../../../hooks/useToggle';
 
 // Component
 function ProductListItem(props) {
   const { disc, id, itemName, qty, rate } = props.item;
-  const currency = props.currency === 'usd' ? '$' : '₹';
-  // Init Custom Toggle Hook
   const [isEditing, setEditing] = useToggle(false);
-  //Init Hook Form
   const { register, handleSubmit, errors, clearError } = useForm();
-  // Init Initial State for Amount Rendering
+
+  const currency = props.currency === 'usd' ? '$' : '₹';
+
   const [form, setForm] = useState({
     itemName: itemName,
     rate: rate,
@@ -29,7 +23,6 @@ function ProductListItem(props) {
     qty: qty
   });
 
-  //Controlled Form Input for Amount Update
   const updateForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -53,6 +46,7 @@ function ProductListItem(props) {
     clearError();
     setEditing();
   };
+
   // Render
   return (
     <Grid container spacing={2}>

@@ -94,11 +94,8 @@ export const sendInvoiceMail = (id) => (
     .setHours(0, 0, 0, 0);
   const today = new Date().setHours(0, 0, 0, 0);
 
-  // console.log(lastReminder, today);
-
   const diff = Math.floor(Math.abs(today - lastReminder) / 1000 / 60 / 60 / 24);
 
-  // console.log(diff);
   // Stop Function if Reminded on same Day
   if (diff === 0) {
     dispatch({ type: 'EMAILSEND_BUTTON', payload: false });

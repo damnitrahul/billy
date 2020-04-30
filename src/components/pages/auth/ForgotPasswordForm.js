@@ -1,14 +1,19 @@
 import React from 'react';
+// Vendor
+import { Button } from '../../styledComponents/shared/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+
+// Custom
 import {
   LoginBox,
   FormHeader
 } from '../../styledComponents/auth/SignupLoginForm';
-import { Button } from '../../styledComponents/shared/Button';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
 import { forgotPassword } from '../../../redux/actions/authActions';
-import { Link } from 'react-router-dom';
 import BillyLogo from '../../../images/Billy-Logo.png';
+
+// Component
 function LoginForm() {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();

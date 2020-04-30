@@ -1,6 +1,10 @@
 import React from 'react';
+// Vendor
 import styled from 'styled-components';
+// Custom
 import laodImg from '../../../images/loaders/summ.svg';
+
+// Styled
 const SkeletonLoader = styled.div`
   img {
     width: 100%;
@@ -49,6 +53,7 @@ const SkeletonLoader = styled.div`
   }
 `;
 
+// Component
 function SmallSummaryCard() {
   return (
     <SkeletonLoader>

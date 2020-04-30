@@ -1,36 +1,28 @@
 import React, { useState, memo } from 'react';
-//Styled Component
-import { Button } from '../../styledComponents/shared/Button';
-
-//React Hook Form
-import { useForm } from 'react-hook-form';
-// Nano Id
-import nanoid from 'nanoid';
-
-//Material Ui
+//Vendor
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Grid from '@material-ui/core/Grid';
+import { useForm } from 'react-hook-form';
+import nanoid from 'nanoid';
+// Custom
+import { Button } from '../../styledComponents/shared/Button';
 
 //Component
 function ProductAddItem(props) {
-  //Init Hook Form
   const { register, handleSubmit, errors } = useForm();
-  // Init Initial State for Amount Rendering
   const [form, setForm] = useState({ itemName: '', rate: '', disc: 0, qty: 1 });
-  //Controlled Form Input for Amount Update
-  const updateFrom = e => {
+  const updateFrom = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  //Currency
+
   const currency = props.currency === 'usd' ? '$' : '₹';
-  // Adding Data to the Product List State
-  const onSubmit = data => {
+
+  const onSubmit = (data) => {
     data = { id: nanoid(4), ...data };
     props.handleAdd(data);
   };
 
-  //Render
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} md={4} lg={4}>

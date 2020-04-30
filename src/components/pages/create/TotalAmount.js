@@ -1,9 +1,12 @@
 import React from 'react';
+//Vendor
 import Grid from '@material-ui/core/Grid';
-import { Button } from '../../styledComponents/shared/Button';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
+// Custom
+import { Button } from '../../styledComponents/shared/Button';
 
+// Components
 function TotalAmount(props) {
   const { register, handleSubmit, errors } = useForm();
   const { taxType, taxEnable, taxPercent } = props.invoiceMeta;

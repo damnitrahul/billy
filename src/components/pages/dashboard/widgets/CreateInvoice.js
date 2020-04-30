@@ -1,10 +1,13 @@
 import React from 'react';
+//Vendor
 import { Link } from 'react-router-dom';
-import { Widget } from '../../../styledComponents/dashboard/Widget';
 import { useSelector } from 'react-redux';
 import { isLoaded } from 'react-redux-firebase';
+// Custom
+import { Widget } from '../../../styledComponents/dashboard/Widget';
 import SmallSummaryCard from '../../../loaders/dashboard/SmallSummaryCard';
 
+// Component
 function CreateInvoice() {
   const totalInvoices = useSelector(
     (state) =>

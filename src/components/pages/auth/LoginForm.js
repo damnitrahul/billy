@@ -1,15 +1,19 @@
 import React from 'react';
+// Vendor
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+// Custom
 import {
   LoginBox,
   FormHeader
 } from '../../styledComponents/auth/SignupLoginForm';
 import { Button } from '../../styledComponents/shared/Button';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
 import { signIn } from '../../../redux/actions/authActions';
-import { Link } from 'react-router-dom';
 import BillyLogo from '../../../images/Billy-Logo.png';
 
+// Component
 function LoginForm() {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
@@ -49,7 +53,7 @@ function LoginForm() {
           />
           {errors.email && (
             <div className="error-text">
-              <i className="tio-error_outlined"></i> Please Enter A Valid Email
+              <i className="tio-error_outlined"></i> Please enter a valid email
             </div>
           )}
         </div>
@@ -71,7 +75,7 @@ function LoginForm() {
         </Link>
         {errors.password && (
           <div className="error-text">
-            <i className="tio-error_outlined"></i> Password should be atleast 6
+            <i className="tio-error_outlined"></i> Password should be at least 6
             characters long
           </div>
         )}
@@ -85,7 +89,7 @@ function LoginForm() {
         </Button>
       </form>
       <p className="footer-text">
-        New to billy? <Link to="/register">Create an Account</Link>
+        New to Billy? <Link to="/register">Create an Account</Link>
       </p>
       <p className="footer-by ">
         Created By{' '}

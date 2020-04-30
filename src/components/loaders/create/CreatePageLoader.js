@@ -1,8 +1,10 @@
 import React from 'react';
+// Vendor
 import styled from 'styled-components';
 import Header from '../../header/Header';
 import Grid from '@material-ui/core/Grid';
 
+// Custom
 import { InvoiceContainer } from '../../styledComponents/newInvoice/NewInvoiceContainer';
 
 const Loader = styled.div`
@@ -41,6 +43,7 @@ const LoaderLong = styled(Loader)`
   width: 100%;
 `;
 
+//Component
 function CreatePageLoader() {
   return (
     <div>

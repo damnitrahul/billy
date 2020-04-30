@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//Styled Component
-import Header from '../../header/Header';
-import { InvoiceContainer } from '../../styledComponents/newInvoice/NewInvoiceContainer';
-//Imported Components
-import ProductList from './ProductList';
-// React Hook Form
-import { useForm } from 'react-hook-form';
-
-//Material UI
+//Vendor
 import TextField from '@material-ui/core/TextField';
 import { RadioInput } from '../../styledComponents/shared/RadioButton';
 import Grid from '@material-ui/core/Grid';
@@ -18,12 +10,14 @@ import {
 } from '@material-ui/pickers';
 import { isLoaded } from 'react-redux-firebase';
 import { useSelector, useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
+
+// Custom
+import Header from '../../header/Header';
+import { InvoiceContainer } from '../../styledComponents/newInvoice/NewInvoiceContainer';
+import ProductList from './ProductList';
 import { createInvoice } from '../../../redux/actions/invoiceActions';
 import CreatePageLoader from '../../loaders/create/CreatePageLoader';
-
-/* ****************************************************** */
-/*                        Component                       */
-/* ****************************************************** */
 
 // Component
 function NewInvoice(props) {

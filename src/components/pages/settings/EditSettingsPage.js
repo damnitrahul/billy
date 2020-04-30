@@ -1,15 +1,19 @@
 import React from 'react';
+//Vendor
 import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { SettingsLayout } from '../../styledComponents/settings/Settings';
-import { TextField } from '@material-ui/core';
 import { isLoaded } from 'react-redux-firebase';
+// Custom
+import { SettingsLayout } from '../../styledComponents/settings/Settings';
 import { RadioInput } from '../../styledComponents/shared/RadioButton';
 import { FlatButton, Button } from '../../styledComponents/shared/Button';
-import { Link } from 'react-router-dom';
 import { updateSetting } from '../../../redux/actions/authActions';
 import { confirmSettingSaveAction } from '../../../redux/actions/alertDialogActions';
+
+// Component
 function EditSettingsPage() {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
@@ -31,7 +35,7 @@ function EditSettingsPage() {
     taxType,
     companyAddress,
     note,
-    currency,
+    currency
   } = settings;
 
   return (
@@ -63,7 +67,7 @@ function EditSettingsPage() {
                 inputRef={register({
                   pattern:
                     /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/ ||
-                    /^$/,
+                    /^$/
                 })}
                 error={errors.gstNumber && true}
                 helperText={errors.gstNumber && 'Invalid Input'}
@@ -132,7 +136,7 @@ function EditSettingsPage() {
                     id="product"
                     name="billableType"
                     ref={register({
-                      required: true,
+                      required: true
                     })}
                     defaultChecked={billableType === 'product'}
                   />
@@ -145,7 +149,7 @@ function EditSettingsPage() {
                     id="service"
                     name="billableType"
                     ref={register({
-                      required: true,
+                      required: true
                     })}
                     defaultChecked={billableType === 'service'}
                   />
@@ -181,7 +185,7 @@ function EditSettingsPage() {
                     id="taxTrue"
                     name="taxEnable"
                     ref={register({
-                      required: true,
+                      required: true
                     })}
                     defaultChecked={taxEnable === 'true'}
                   />
@@ -194,7 +198,7 @@ function EditSettingsPage() {
                     id="taxFalse"
                     name="taxEnable"
                     ref={register({
-                      required: true,
+                      required: true
                     })}
                     defaultChecked={taxEnable === 'false'}
                   />
@@ -214,7 +218,7 @@ function EditSettingsPage() {
                     id="taxTypeExc"
                     name="taxType"
                     ref={register({
-                      required: true,
+                      required: true
                     })}
                     defaultChecked={taxType === 'exc'}
                   />
@@ -227,7 +231,7 @@ function EditSettingsPage() {
                     id="taxTypeInc"
                     name="taxType"
                     ref={register({
-                      required: true,
+                      required: true
                     })}
                     defaultChecked={taxType === 'inc'}
                   />

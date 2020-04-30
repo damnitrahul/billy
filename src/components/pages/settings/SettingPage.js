@@ -1,13 +1,16 @@
 import React from 'react';
-import { SettingsLayout } from '../../styledComponents/settings/Settings';
-import { useSelector } from 'react-redux';
+//Vendor
 import Grid from '@material-ui/core/Grid';
-import { SecondaryButton } from '../../styledComponents/shared/Button';
-import { Link } from 'react-router-dom';
-import DisplayName from './DisplayName';
 import { isLoaded } from 'react-redux-firebase';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+// Custom
+import DisplayName from './DisplayName';
 import SettingsLoader from '../../loaders/settings/SettingsLoader';
+import { SecondaryButton } from '../../styledComponents/shared/Button';
+import { SettingsLayout } from '../../styledComponents/settings/Settings';
 
+// Component
 function SettingPage() {
   const settings = useSelector(
     (state) => state.firebase.profile && state.firebase.profile.settings

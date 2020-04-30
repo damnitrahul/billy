@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
+//Vendor
 import { Grid } from '@material-ui/core';
-import { SignUpPage } from '../../styledComponents/auth/SignupLoginForm';
-import LoginForm from './LoginForm';
 import { useDispatch } from 'react-redux';
 
+// Custom
+import { SignUpPage } from '../../styledComponents/auth/SignupLoginForm';
+import LoginForm from './LoginForm';
+
+// Component
 function Login() {
   const dispatch = useDispatch();
   useEffect(() => {

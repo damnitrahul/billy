@@ -1,14 +1,12 @@
 import React from 'react';
+//Vendor
 import Header from '../../header/Header';
+// Custom
 import EditSettingsPage from './EditSettingsPage';
-import { useDispatch } from 'react-redux';
-import { changePassword } from '../../../redux/actions/authActions';
 import ChangePassword from './ChangePassword';
+
+// Component
 function EditSettings() {
-  const dispatch = useDispatch();
-  const handlePass = () => {
-    dispatch(changePassword());
-  };
   return (
     <div>
       <Header title={'Edit Settings'} />

@@ -1,9 +1,12 @@
 import React from 'react';
-import { Widget } from '../../../styledComponents/dashboard/Widget';
+//Vendor
 import { useSelector } from 'react-redux';
 import { isLoaded } from 'react-redux-firebase';
+// Custom
+import { Widget } from '../../../styledComponents/dashboard/Widget';
 import SmallSummaryCard from '../../../loaders/dashboard/SmallSummaryCard';
 
+// Component
 function PendingInvoice() {
   const pendingInvoices = useSelector(
     (state) =>
@@ -11,9 +14,11 @@ function PendingInvoice() {
       state.firestore.ordered.invoices.filter((invoice) => !invoice.paidStatus)
         .length
   );
+
   if (!isLoaded(pendingInvoices)) {
     return <SmallSummaryCard />;
   }
+
   return (
     <Widget color="#F03738">
       <div className="icon">

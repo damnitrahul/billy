@@ -1,6 +1,10 @@
 import React from 'react';
+// Vendor
 import styled from 'styled-components';
+// Custom
 import loadSVG from '../../../images/loaders/graph.svg';
+
+// Styled
 const Loader = styled.div`
   img {
     width: 100%;

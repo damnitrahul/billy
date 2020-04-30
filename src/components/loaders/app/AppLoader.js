@@ -1,5 +1,7 @@
 import React from 'react';
+// Vendor
 import styled from 'styled-components';
+// Custom
 import BillyLogo from '../../../images/Billy-Logo.png';
 
 const Loader = styled.div`

@@ -1,6 +1,8 @@
 import React from 'react';
+//Vendor
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
+// Custom
 import { SettingsLayout } from '../../styledComponents/settings/Settings';
 
 const DisplayLoader = styled.div`
@@ -86,6 +88,7 @@ const Loader = styled.div`
   }
 `;
 
+// Component
 function SettingsLoader() {
   return (
     <div>

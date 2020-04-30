@@ -1,19 +1,15 @@
-import React from 'react';
-
-// Styled Component
-import { Button } from '../../styledComponents/shared/Button';
-import { ButtonDiv } from '../../styledComponents/incvoiceDetails/InvoiceDetailButtons';
-
-// Components Import
-import Header from '../../header/Header';
-import InvoicePD from './InvoicePD';
-import InvoicePDF from './InvoicePDF';
-
+import React, { useState } from 'react';
 // Vendor
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { isLoaded } from 'react-redux-firebase';
 import { PDFDownloadLink } from '@react-pdf/renderer';
+// Custom
+import Header from '../../header/Header';
+import InvoicePD from './InvoicePD';
+import InvoicePDF from './InvoicePDF';
+import { Button } from '../../styledComponents/shared/Button';
+import { ButtonDiv } from '../../styledComponents/incvoiceDetails/InvoiceDetailButtons';
 import {
   confirmDeleteAction,
   confirmEmailReminder,
@@ -24,7 +20,6 @@ import {
   sendInvoiceMail,
   updatePaymentStatus
 } from '../../../redux/actions/invoiceActions';
-import { useState } from 'react';
 import AppLoader from '../../loaders/app/AppLoader';
 
 // Component

@@ -1,6 +1,8 @@
 import React from 'react';
+//Vendor
 import { useSelector } from 'react-redux';
 
+// Component
 function DisplayName() {
   const ProfileSettings = useSelector((state) => state.firebase.profile);
   const { firstName, lastName } = ProfileSettings;

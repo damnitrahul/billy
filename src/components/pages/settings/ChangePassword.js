@@ -1,12 +1,15 @@
 import React from 'react';
+//Vendor
 import { Grid, TextField } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+// Custom
 import { SettingsLayout } from '../../styledComponents/settings/Settings';
 import { Button, FlatButton } from '../../styledComponents/shared/Button';
-import { Link } from 'react-router-dom';
 import { changePassword } from '../../../redux/actions/authActions';
 
+// Component
 function ChangePassword() {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors, watch } = useForm();

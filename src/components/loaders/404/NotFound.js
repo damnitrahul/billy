@@ -1,8 +1,10 @@
 import React from 'react';
+// Vendor
 import styled from 'styled-components';
-import NotFoundImg from '../../../images/404.svg';
 import { Link } from 'react-router-dom';
+// Custom
 import { SecondaryButton } from '../../styledComponents/shared/Button';
+import NotFoundImg from '../../../images/404.svg';
 
 const Loader = styled.div`
   display: flex;

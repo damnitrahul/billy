@@ -1,17 +1,20 @@
 import React from 'react';
+//Vendor
+import Hidden from '@material-ui/core/Hidden';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+// Custom
 import {
   SignUpForm as SignUpBox,
   FormHeader
 } from '../../styledComponents/auth/SignupLoginForm';
 import { TwoColField } from '../../styledComponents/shared/TextFieldLabel';
 import { Button } from '../../styledComponents/shared/Button';
-
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../../../redux/actions/authActions';
-import { Link } from 'react-router-dom';
 import BillyLogo from '../../../images/Billy-Logo.png';
-import { Hidden } from '@material-ui/core';
+
+// Component
 function SignUpForm() {
   const dispatch = useDispatch();
   const loadingState = useSelector((state) => state.loadingState.registerBtn);
@@ -22,9 +25,9 @@ function SignUpForm() {
 
   const handleRegister = (data, e) => {
     e.preventDefault();
-    console.log(data);
     dispatch(signUp(data));
   };
+
   return (
     <SignUpBox>
       <FormHeader>
@@ -85,7 +88,7 @@ function SignUpForm() {
           />
           {errors.email && (
             <div className="error-text">
-              <i className="tio-error_outlined"></i> Please Enter A Valid Email
+              <i className="tio-error_outlined"></i> Please enter a valid email
             </div>
           )}
         </div>
@@ -103,7 +106,7 @@ function SignUpForm() {
           />
           {errors.password && (
             <div className="error-text">
-              <i className="tio-error_outlined"></i> Password should be atleast
+              <i className="tio-error_outlined"></i> Password should be at least
               6 characters long
             </div>
           )}

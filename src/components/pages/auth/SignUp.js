@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react';
-import { Grid, Hidden } from '@material-ui/core';
+//Vendor
+import Hidden from '@material-ui/core/Hidden';
+import Grid from '@material-ui/core/Grid';
+import { useDispatch } from 'react-redux';
+// Custom
 import SignUpForm from './SignUpForm';
 import { SignUpPage } from '../../styledComponents/auth/SignupLoginForm';
 import BillyLogo from '../../../images/Billy-Logo.png';
 import DamnitrahulLogo from '../../../images/logo.png';
-import { useDispatch } from 'react-redux';
 
+// Component
 function SignUp() {
   const dispatch = useDispatch();
   useEffect(() => {

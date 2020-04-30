@@ -1,8 +1,11 @@
 import React from 'react';
+//Vendor
 import styled from 'styled-components';
+// Custom
 import nothing from '../../../images/nothing.svg';
 import { Link } from 'react-router-dom';
 
+// Styled
 const Loader = styled.div`
   display: flex;
   justify-content: center;
@@ -23,6 +26,8 @@ const Loader = styled.div`
     }
   }
 `;
+
+// Component
 function NothingHere() {
   return (
     <Loader>

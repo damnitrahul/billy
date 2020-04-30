@@ -1,9 +1,9 @@
 import React from 'react';
-
-import styled from '@react-pdf/styled-components';
-import Noto from '../../../fonts/NotoSans-Regular.ttf';
-import { Page, Text, View, Document, Font } from '@react-pdf/renderer';
+//Vendor
 import moment from 'moment';
+import styled from '@react-pdf/styled-components';
+import { Page, Text, View, Document, Font } from '@react-pdf/renderer';
+import Noto from '../../../fonts/NotoSans-Regular.ttf';
 
 Font.register({
   family: 'Noto Sans',
@@ -93,58 +93,6 @@ const BillDataSerial = styled(BillDataNum)`
 const BillTotal = styled(BillColumnRight)`
   padding: 0;
 `;
-InvoicePDF.defaultProps = {
-  invoices: [
-    {
-      companame: 'Silk Shree Khadi',
-      gstNumber: '',
-      companyAddress:
-        'Quarter No. 28, Road No. 01, Kazipur, Nalaroad, Near ASG Eye Hospital Dinkar Chowk',
-      customerName: 'Rahul Raj',
-      customerAddress: 'Nala Road',
-      email: 'rahulthepunksta@gmail.com',
-      invoiceDate: '02/27/2020',
-      dueDate: '02/27/2020',
-      invoiceNumber: 'INV1221',
-      billableType: 'product',
-      currency: 'inr',
-      note: 'Notes for Customer',
-      taxEnable: 'true',
-      taxType: 'exc',
-      taxPercent: '18',
-      items: [
-        {
-          id: 1,
-          itemName: 'Web Dev Mug XXL IBR23',
-          rate: 345.5,
-          qty: 2,
-          disc: 10,
-          amount: 691
-        },
-        {
-          id: 4,
-          itemName: 'Web Dev Mug XXL IBR23',
-          rate: 345.5,
-          qty: 2,
-          disc: 10,
-          amount: 691
-        },
-        {
-          id: 4,
-          itemName: 'Web Dev Mug XXL IBR23',
-          rate: 345.5,
-          qty: 2,
-          disc: 10,
-          amount: 691
-        }
-      ],
-      totalAmount: 2764,
-      totalExclusiveTax: 497.52,
-      totalInclusiveTax: 421.63,
-      totalWithExclusiveTax: 3261.52
-    }
-  ]
-};
 
 function InvoicePDF(props) {
   const {

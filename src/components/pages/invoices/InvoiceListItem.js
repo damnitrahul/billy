@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { InvoiceListItem as InvoiceList } from '../../styledComponents/invoices/invoiceTables';
+//Vendor
 import moment from 'moment';
-import { useDispatch } from 'react-redux';
-
-//Material UI
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+// Custom
+import { InvoiceListItem as InvoiceList } from '../../styledComponents/invoices/invoiceTables';
 import {
   deleteInovice,
-  updatePaymentStatus,
+  updatePaymentStatus
 } from '../../../redux/actions/invoiceActions';
 import {
   confirmDeleteAction,
-  confirmPaymentChangeAction,
+  confirmPaymentChangeAction
 } from '../../../redux/actions/alertDialogActions';
 
+// Component
 function InvoiceListItem(props) {
   const { invoice } = props;
   const [anchorEl, setAnchorEl] = useState(null);
@@ -70,12 +71,12 @@ function InvoiceListItem(props) {
             ? currencySign +
               invoice.totalAmount.toLocaleString('en-US', {
                 minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
+                maximumFractionDigits: 2
               })
             : currencySign +
               invoice.totalWithExclusiveTax.toLocaleString('en-US', {
                 minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
+                maximumFractionDigits: 2
               })}
         </p>
         <p className="status">
@@ -100,7 +101,7 @@ function InvoiceListItem(props) {
             anchorEl={anchorEl}
             anchorOrigin={{
               vertical: 'top',
-              horizontal: 'left',
+              horizontal: 'left'
             }}
             keepMounted
             open={open}

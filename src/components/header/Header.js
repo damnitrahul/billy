@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 
-//Material UI
+//Vendor
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-
-//Styled Component
-import { AppBar } from '../styledComponents/layout/header/AppBar';
-
-//Router
-import { signOut } from '../../redux/actions/authActions';
-import { useDispatch, useSelector } from 'react-redux';
-import { confirmLogoutAction } from '../../redux/actions/alertDialogActions';
-import { isLoaded } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
+import { isLoaded } from 'react-redux-firebase';
+import { useDispatch, useSelector } from 'react-redux';
+
+//Custom
+import { AppBar } from '../styledComponents/layout/header/AppBar';
+import { signOut } from '../../redux/actions/authActions';
+import { confirmLogoutAction } from '../../redux/actions/alertDialogActions';
 
 //Component
 function Header({ title }) {
@@ -26,6 +24,7 @@ function Header({ title }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -33,6 +32,7 @@ function Header({ title }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const handleLogout = () => {
     setAnchorEl(null);
     dispatch(confirmLogoutAction(signOut()));

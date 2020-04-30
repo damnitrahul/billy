@@ -60,6 +60,7 @@ export const signUp = (newUser) => {
       .finally(() => dispatch({ type: 'REGISTER_BUTTON', payload: false }));
   };
 };
+
 export const changePassword = (currentPassword, newPassword) => {
   return (dispatch, getState, { getFirebase }) => {
     dispatch({ type: 'PASSWORDCHANGE_BUTTON', payload: true });
