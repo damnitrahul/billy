@@ -91,6 +91,14 @@ function SignUpForm() {
               <i className="tio-error_outlined"></i> Please enter a valid email
             </div>
           )}
+          {!errors.email && (
+            <div
+              className="error-text"
+              style={{ color: '#3a3a3a', fontSize: '0.8rem' }}
+            >
+              Psst, No Email Verification Required
+            </div>
+          )}
         </div>
         <div className={errors.password && 'error'}>
           <label htmlFor="password">Password</label>

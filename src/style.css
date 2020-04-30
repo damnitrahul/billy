@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'The-Icon-of';
-  src: url('fonts/The-Icon-of.woff?k0jcsx');
+  src: url('fonts/The-Icon-of.woff?uv43t3');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -39,6 +39,9 @@
 }
 .tio-time:before {
   content: '\e970';
+}
+.tio-error_outlined:before {
+  content: '\e97e';
 }
 .tio-send:before {
   content: '\ea17';

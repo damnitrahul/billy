@@ -24,6 +24,7 @@ const LazyApp = Loadable({
 
 function App() {
   const auth = useSelector((state) => state.firebase.auth);
+
   useEffect(() => {
     console.log(
       '%c👋 Oh, Hi there,Curious web lover!',
@@ -45,10 +46,11 @@ function App() {
       'font-size:16px'
     );
   }, []);
+
   useFirestoreConnect([
     {
       collection: 'users',
-      doc: auth.uid || '7H32sbpohKZk24Q2',
+      doc: auth.uid || ' ',
       subcollections: [
         { collection: 'invoices', orderBy: ['invoiceDate', 'desc'] }
       ],
@@ -66,7 +68,7 @@ function App() {
         <Route exact path="/register" component={SignUp} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/forgot" component={ForgotPassword} />
-        <Route render={() => <Redirect to="/login" />} />
+        <Route render={() => <Redirect to="/register" />} />
       </Switch>
     );
 
