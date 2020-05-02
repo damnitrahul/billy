@@ -6,7 +6,7 @@ export default {
   billableType: 'product',
   taxType: 'exc',
   companyAddress: '',
-  note: 'Thanks You For Shopping',
+  note: 'Thank You For Shopping',
   currency: 'inr',
-  currentInvoiceNum: '0001',
+  currentInvoiceNum: '0001'
 };
