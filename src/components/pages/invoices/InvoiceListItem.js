@@ -67,14 +67,23 @@ function InvoiceListItem(props) {
         <p className="name">{invoice.customerName}</p>
 
         <p className="amount">
-          {invoice.taxType === 'inc'
-            ? currencySign +
+          {invoice.taxType === 'inc' &&
+            invoice.taxEnable === 'true' &&
+            currencySign +
               invoice.totalAmount.toLocaleString('en-US', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
-              })
-            : currencySign +
+              })}
+          {invoice.taxType === 'exc' &&
+            invoice.taxEnable === 'true' &&
+            currencySign +
               invoice.totalWithExclusiveTax.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+              })}
+          {invoice.taxEnable === 'false' &&
+            currencySign +
+              invoice.totalAmount.toLocaleString('en-US', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
               })}
