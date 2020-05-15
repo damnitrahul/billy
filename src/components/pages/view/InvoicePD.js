@@ -78,7 +78,8 @@ function InvoicePDF(props) {
     totalExclusiveTax,
     totalInclusiveTax,
     totalWithExclusiveTax,
-    paidStatus
+    paidStatus,
+    billableType
   } = props.invoice;
   const currencySign = currency === 'usd' ? '$' : '₹';
   const itemList = items.map(({ itemName, rate, qty, disc, amount, id }, i) => (
@@ -127,7 +128,7 @@ function InvoicePDF(props) {
         </BillDetails>
         <BillHead>
           <BillDataNum>#</BillDataNum>
-          <p>Product Details</p>
+          <p>{billableType === 'product' ? 'Product Details' : 'Desription'}</p>
           <BillDataNum>Rate</BillDataNum>
           <BillDataNum>Disc</BillDataNum>
           <BillDataNum>Qty</BillDataNum>

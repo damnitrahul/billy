@@ -15,7 +15,7 @@ function SideBar() {
       </Link>
       <NavLinks
         icon={'tio-dashboard_vs'}
-        name={'Dash Board'}
+        name={'Dashboard'}
         color={'#2E5BFF'}
         to="/"
       />

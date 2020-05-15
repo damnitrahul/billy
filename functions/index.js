@@ -45,7 +45,7 @@ exports.invoiceGenerateMail = functions.firestore
       from: 'billy@damnitrahul.com',
       templateId: 'd-7b2a7a4c41604eeda7aa0d7ec57b056c',
       dynamic_template_data: {
-        subject: 'Invoice Generated',
+        subject: `Invoice Received from ${invoice.companyName}`,
         name: invoice.customerName,
         message: `You have received an Invoice from ${invoice.companyName}.`,
         currency: invoice.currency === 'inr' ? '₹' : '$',
@@ -79,7 +79,7 @@ exports.invoiceRemindMail = functions.https.onCall(async (data, context) => {
         from: 'billy@damnitrahul.com',
         templateId: 'd-7b2a7a4c41604eeda7aa0d7ec57b056c',
         dynamic_template_data: {
-          subject: 'Invoice Remider',
+          subject: `Payment Reminder from ${invoice.companyName}`,
           name: invoice.customerName,
           message: `You have received an Invoice from ${invoice.companyName}.`,
           currency: invoice.currency === 'inr' ? '₹' : '$',

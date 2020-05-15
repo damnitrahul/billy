@@ -159,7 +159,7 @@ function InvoicePDF(props) {
           <BillRowHead>
             <BillDataSerial>#</BillDataSerial>
             <BillDataText>
-              {billableType === 'service' ? `Service` : 'Product'} Details
+              {billableType === 'product' ? 'Product Details' : 'Desription'}
             </BillDataText>
             <BillDataNum>Rate</BillDataNum>
             <BillDataNum style={{ width: '9%' }}>Disc</BillDataNum>
