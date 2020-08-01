@@ -31,6 +31,9 @@ exports.welcomeMail = functions.auth.user().onCreate((user) => {
         }
       };
       sg.send(mail);
+    }).catch((err) => {
+      console.log(err);
+      return 'ERROR';
     });
 
   return 'Message Sent';
@@ -101,6 +104,7 @@ exports.invoiceRemindMail = functions.https.onCall(async (data, context) => {
       return 'SENT';
     })
     .catch((err) => {
+      console.log(err);
       return 'ERROR';
     });
   return await invoice;
