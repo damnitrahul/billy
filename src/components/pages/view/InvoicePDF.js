@@ -170,7 +170,7 @@ function InvoicePDF(props) {
         {itemList}
         <BillDetails style={{ padding: '0 5px' }}>
           <BillColumnLeft>
-            {note && (
+            {note.length> 0 && (
               <Details style={{ marginTop: '50px' }}>Note : {note}</Details>
             )}
           </BillColumnLeft>
